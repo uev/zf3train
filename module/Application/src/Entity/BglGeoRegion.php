@@ -1,17 +1,20 @@
 <?php
 
-
+namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * BglGeoRegion
  *
- * @ORM\Table(name="bgl_geo_region", indexes={@ORM\Index(name="bgl_geo_region_countryid_idx", columns={"countryid"}), @ORM\Index(name="bgl_geo_region_name_idx", columns={"name"})})
+ * @ORM\Table(name="bgl_geo_region",
+ * indexes={@ORM\Index(name="bgl_geo_region_countryid_idx", columns={"countryid"}),
+ * @ORM\Index(name="bgl_geo_region_name_idx", columns={"name"})})
  * @ORM\Entity
  */
 class BglGeoRegion
 {
+
     /**
      * @var integer
      *
