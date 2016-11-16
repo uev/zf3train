@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BglGeoCountry
 {
-
     /**
      * @var integer
      *
@@ -36,4 +35,31 @@ class BglGeoCountry
      * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
     private $name = '';
+
+    function getId() {
+        return $this->id;
+    }
+
+    function getCode() {
+        return $this->code;
+    }
+
+    function getName() {
+        return $this->name;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setCode($code) {
+        $this->code = $code;
+    }
+
+    function setName($name) {
+        $this->name = $name;
+    }
+
+
 }
+

@@ -7,15 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * BglGeoCity
  *
- * @ORM\Table(name="bgl_geo_city", indexes={
- * @ORM\Index(name="bgl_geo_city_countryid_idx", columns={"countryid"}),
- * @ORM\Index(name="bgl_geo_city_regionid_idx", columns={"regionid"}),
- * @ORM\Index(name="bgl_geo_city_name_idx", columns={"name"})})
+ * @ORM\Table(name="bgl_geo_city", indexes={@ORM\Index(name="bgl_geo_city_countryid_idx", columns={"countryid"}), @ORM\Index(name="bgl_geo_city_regionid_idx", columns={"regionid"}), @ORM\Index(name="bgl_geo_city_name_idx", columns={"name"})})
  * @ORM\Entity
  */
 class BglGeoCity
 {
-
     /**
      * @var integer
      *
@@ -46,4 +42,41 @@ class BglGeoCity
      * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
     private $name = '';
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function getCountryid() {
+        return $this->countryid;
+    }
+
+    function getRegionid() {
+        return $this->regionid;
+    }
+
+    function getName() {
+        return $this->name;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setCountryid($countryid) {
+        $this->countryid = $countryid;
+    }
+
+    function setRegionid($regionid) {
+        $this->regionid = $regionid;
+    }
+
+    function setName($name) {
+        $this->name = $name;
+    }
+
+
+
+
 }
+

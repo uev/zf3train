@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Global Configuration Override
  *
@@ -10,7 +11,6 @@
  * control, so do not include passwords or other sensitive information in this
  * file.
  */
-
 use Doctrine\DBAL\Driver\PDOPgSql\Driver as PDOPgSqlDriver;
 
 return [
@@ -18,13 +18,19 @@ return [
         'connection' => [
             'orm_default' => [
                 'driverClass' => PDOPgSqlDriver::class,
-            'params' => [
-                'host' => 'localhost',
-                'user' => 'postgres',
-                'password' => 'postgres',
-                'dbname' => 'test',
-                'port' => '5432',
-            ]]
+                'params' => [
+                    'host' => 'localhost',
+                    'user' => 'postgres',
+                    'password' => 'postgres',
+                    'dbname' => 'test',
+                    'port' => '5432',
+                ]]
+        ],
+        'entitymanager' => [
+            'orm_default' => [
+                'connection' => 'orm_default',
+                'configuration' => 'orm_default',
+            ],
         ],
     ],
 ];

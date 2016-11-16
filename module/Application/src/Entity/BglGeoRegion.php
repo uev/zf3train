@@ -7,14 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * BglGeoRegion
  *
- * @ORM\Table(name="bgl_geo_region",
- * indexes={@ORM\Index(name="bgl_geo_region_countryid_idx", columns={"countryid"}),
- * @ORM\Index(name="bgl_geo_region_name_idx", columns={"name"})})
+ * @ORM\Table(name="bgl_geo_region", indexes={@ORM\Index(name="bgl_geo_region_countryid_idx", columns={"countryid"}), @ORM\Index(name="bgl_geo_region_name_idx", columns={"name"})})
  * @ORM\Entity
  */
 class BglGeoRegion
 {
-
     /**
      * @var integer
      *
@@ -38,4 +35,31 @@ class BglGeoRegion
      * @ORM\Column(name="name", type="string", length=64, nullable=false)
      */
     private $name = '';
+
+    function getId() {
+        return $this->id;
+    }
+
+    function getCountryid() {
+        return $this->countryid;
+    }
+
+    function getName() {
+        return $this->name;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setCountryid($countryid) {
+        $this->countryid = $countryid;
+    }
+
+    function setName($name) {
+        $this->name = $name;
+    }
+
+
 }
+
