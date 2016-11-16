@@ -2,64 +2,83 @@
 
 namespace Application\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * BglGeoCountry
- *
- * @ORM\Table(name="bgl_geo_country")
- * @ORM\Entity
  */
 class BglGeoCountry
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="bgl_geo_country_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="code", type="string", length=2, nullable=false)
      */
-    private $code = '0';
+    private $code;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
-    private $name = '';
+    private $name;
 
-    function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getCode() {
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return BglGeoCountry
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
         return $this->code;
     }
 
-    function getName() {
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return BglGeoCountry
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
         return $this->name;
     }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setCode($code) {
-        $this->code = $code;
-    }
-
-    function setName($name) {
-        $this->name = $name;
-    }
-
-
 }
 
