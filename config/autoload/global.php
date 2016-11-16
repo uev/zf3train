@@ -12,10 +12,11 @@
  */
 
 use Doctrine\DBAL\Driver\PDOPgSql\Driver as PDOPgSqlDriver;
+
 return [
     'doctrine' => [
         'connection' => [
-            'orm_default' =>  [
+            'orm_default' => [
                 'driverClass' => PDOPgSqlDriver::class,
             'params' => [
                 'host' => 'localhost',
@@ -25,5 +26,5 @@ return [
                 'port' => '5432',
             ]]
         ],
-    ],    
+    ],
 ];

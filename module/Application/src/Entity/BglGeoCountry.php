@@ -35,7 +35,4 @@ class BglGeoCountry
      * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
     private $name = '';
-
-
 }
-
