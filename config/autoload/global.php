@@ -11,6 +11,19 @@
  * file.
  */
 
+use Doctrine\DBAL\Driver\PDOPgSql\Driver as PDOPgSqlDriver;
 return [
-    // ...
+    'doctrine' => [
+        'connection' => [
+            'orm_default' =>  [
+                'driverClass' => PDOPgSqlDriver::class,
+            'params' => [
+                'host' => 'localhost',
+                'user' => 'postgres',
+                'password' => 'postgres',
+                'dbname' => 'test',
+                'port' => '5432',
+            ]]
+        ],
+    ],    
 ];
