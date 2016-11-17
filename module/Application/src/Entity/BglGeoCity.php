@@ -1,113 +1,76 @@
 <?php
 
+
 namespace Application\Entity;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * BglGeoCity
+ * 
+ * @ORM\Table(name="bgl_geo_city", indexes={@ORM\Index(name="bgl_geo_city_countryid_idx", columns={"countryid"}), @ORM\Index(name="bgl_geo_city_regionid_idx", columns={"regionid"}), @ORM\Index(name="bgl_geo_city_name_idx", columns={"name"})})
+ * @ORM\Entity
  */
 class BglGeoCity
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="bgl_geo_city_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
-     * @var integer
+     * @var BglGeoCountry
+     * 
+     * @ORM\ManyToOne(targetEntity="BglGeoCountry", cascade={"all"}, fetch="LAZY")
+     * @ORM\JoinColumn(name="countryid", referencedColumnName="id")
      */
-    private $countryid;
+    private $country;
 
     /**
-     * @var integer
+     * @var BglGeoRegion
+     * 
+     * @ORM\ManyToOne(targetEntity="BglGeoRegion", cascade={"all"}, fetch="LAZY")
+     * @ORM\JoinColumn(name="regionid", referencedColumnName="id")
      */
-    private $regionid;
+    private $region;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
     private $name;
 
+    public function getCountry() {
+        return $this->country;
+    }
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
+    public function getRegion() {
+        return $this->region;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function setCountry($country) {
+        $this->country = $country;
+    }
+
+    public function setRegion($region) {
+        $this->region = $region;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function getId() {
         return $this->id;
     }
 
-    /**
-     * Set countryid
-     *
-     * @param integer $countryid
-     *
-     * @return BglGeoCity
-     */
-    public function setCountryid($countryid)
-    {
-        $this->countryid = $countryid;
-
-        return $this;
-    }
-
-    /**
-     * Get countryid
-     *
-     * @return integer
-     */
-    public function getCountryid()
-    {
-        return $this->countryid;
-    }
-
-    /**
-     * Set regionid
-     *
-     * @param integer $regionid
-     *
-     * @return BglGeoCity
-     */
-    public function setRegionid($regionid)
-    {
-        $this->regionid = $regionid;
-
-        return $this;
-    }
-
-    /**
-     * Get regionid
-     *
-     * @return integer
-     */
-    public function getRegionid()
-    {
-        return $this->regionid;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return BglGeoCity
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 }
-
